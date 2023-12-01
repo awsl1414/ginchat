@@ -1,8 +1,6 @@
 package main
 
-import (
-	"github.com/gin-gonic/gin"
-)
+import "ginchat/router"
 
 // func main() {
 // 	r := gin.Default()
@@ -15,6 +13,6 @@ import (
 // }
 
 func main() {
-	r := gin.Default()
-	r.GET("/index", service.GetIndex)
+	r := router.Router()
+	r.Run("localhost:8081")
 }
