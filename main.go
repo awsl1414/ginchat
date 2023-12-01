@@ -4,12 +4,17 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// func main() {
+// 	r := gin.Default()
+// 	r.GET("/ping", func(c *gin.Context) {
+// 		c.JSON(200, gin.H{
+// 			"msg": "pong",
+// 		})
+// 	})
+// 	r.Run()
+// }
+
 func main() {
 	r := gin.Default()
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"msg": "pong",
-		})
-	})
-	r.run
+	r.GET("/index", service.GetIndex)
 }
