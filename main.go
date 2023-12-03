@@ -1,6 +1,9 @@
 package main
 
-import "ginchat/router"
+import (
+	"ginchat/router"
+	"ginchat/utils"
+)
 
 // func main() {
 // 	r := gin.Default()
@@ -13,6 +16,9 @@ import "ginchat/router"
 // }
 
 func main() {
+	utils.InitConfig()
+	utils.InitMySQL()
+
 	r := router.Router()
 	r.Run("localhost:8081")
 }

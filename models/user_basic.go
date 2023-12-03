@@ -1,6 +1,8 @@
 package models
 
 import (
+	"fmt"
+	"ginchat/utils"
 	"time"
 
 	"gorm.io/gorm"
@@ -20,4 +22,17 @@ type UserBasic struct {
 	LoginOutTime  time.Time `gorm: "colum: login_out_time" json: "login_out_time"`
 	IsLogout      bool
 	DeviceInfo    string
+}
+
+func (table *UserBasic) TableName() string {
+	return "user_basic"
+}
+
+func GetUserList() []*UserBasic {
+	data := make([]*UserBasic, 10)
+	utils.DB.Find(&data)
+	for _, v := range data {
+		fmt.Println(v)
+	}
+	return data
 }
