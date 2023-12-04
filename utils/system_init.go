@@ -21,11 +21,10 @@ func InitConfig() {
 	fmt.Println("config mysql:", viper.Get("mysql"))
 }
 
-func InitMySQL() *gorm.DB {
+func InitMySQL() {
 	// db, err := gorm.Open(sqlite.Open("test.db"), &gorm.Config{})
-	DB, _ := gorm.Open(mysql.Open(viper.GetString("mysql.dns")), &gorm.Config{})
+	DB, _ = gorm.Open(mysql.Open(viper.GetString("mysql.dns")), &gorm.Config{})
 	// user := models.UserBasic{}
 	// DB.Find(&user)
 	// fmt.Println(user)
-	return DB
 }
