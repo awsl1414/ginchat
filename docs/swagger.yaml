@@ -1,0 +1,34 @@
+info:
+  contact: {}
+paths:
+  /index:
+    get:
+      responses: {}
+      tags:
+      - 首页
+  /user/create_user:
+    get:
+      parameters:
+      - description: 用户名
+        in: query
+        name: name
+        type: string
+      - description: 密码
+        in: query
+        name: password
+        type: string
+      - description: 确认密码
+        in: query
+        name: repassword
+        type: string
+      responses: {}
+      summary: 新增用户
+      tags:
+      - 用户模块
+  /user/get_user_list:
+    get:
+      responses: {}
+      summary: 所有用户
+      tags:
+      - 用户模块
+swagger: "2.0"
