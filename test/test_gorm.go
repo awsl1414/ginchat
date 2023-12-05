@@ -18,6 +18,7 @@ import (
 func main() {
 
 	db, _ := gorm.Open(mysql.Open("root:123456@tcp(127.0.0.1:3306)/ginchat?charset=utf8mb4&parseTime=True&loc=Local"), &gorm.Config{})
+
 	// db, err := gorm.Open(sqlite.Open("test.db"), &gorm.Config{})
 	// if err != nil {
 	// 	panic("failed to connect database")
