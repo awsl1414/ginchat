@@ -38,6 +38,7 @@ func CreateUser(c *gin.Context) {
 		c.JSON(-1, gin.H{
 			"msg": "密码不一致",
 		})
+		return
 	}
 	user.Password = password
 	models.CreateUser(user)
@@ -60,5 +61,29 @@ func DeleteUser(c *gin.Context) {
 	models.DeleteUser(user)
 	c.JSON(200, gin.H{
 		"msg": "删除用户成功",
+	})
+}
+
+// UpdateUser
+// @Summary 修改用户
+// @Tags 用户模块
+// @param id formData string false "id"
+// @param name formData string false "name"
+// @param password formData string false "password"
+// @param phone formData string false "phone"
+// @param email formData string false "email"
+// @Sussess 200 {string} json{"code", "message"}
+// @Router /user/update_user [post]
+func UpdateUser(c *gin.Context) {
+	user := models.UserBasic{}
+	id, _ := strconv.Atoi(c.PostForm("id"))
+	user.ID = uint(id)
+	user.Name = c.PostForm("name")
+	user.Password = c.PostForm("password")
+	user.Phone = c.PostForm("phone")
+	user.Email = c.PostForm("email")
+	models.UpdateUser(user)
+	c.JSON(200, gin.H{
+		"msg": "修改用户成功",
 	})
 }

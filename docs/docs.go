@@ -77,6 +77,35 @@ const docTemplate = `{
                 "summary": "所有用户",
                 "responses": {}
             }
+        },
+        "/user/update_user": {
+            "post": {
+                "tags": [
+                    "用户模块"
+                ],
+                "summary": "修改用户",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "id",
+                        "name": "id",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "description": "name",
+                        "name": "name",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "description": "password",
+                        "name": "password",
+                        "in": "formData"
+                    }
+                ],
+                "responses": {}
+            }
         }
     }
 }`
