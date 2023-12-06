@@ -25,6 +25,17 @@ paths:
       summary: 新增用户
       tags:
       - 用户模块
+  /user/delete_user:
+    get:
+      parameters:
+      - description: id
+        in: query
+        name: id
+        type: string
+      responses: {}
+      summary: 删除用户
+      tags:
+      - 用户模块
   /user/get_user_list:
     get:
       responses: {}

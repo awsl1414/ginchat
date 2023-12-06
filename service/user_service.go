@@ -2,6 +2,7 @@ package service
 
 import (
 	"ginchat/models"
+	"strconv"
 
 	"github.com/gin-gonic/gin"
 )
@@ -47,27 +48,17 @@ func CreateUser(c *gin.Context) {
 }
 
 // DeleteUser
-// @Summary 新增用户
+// @Summary 删除用户
 // @Tags 用户模块
-// @Param name query string false "用户名"
-// @Param password query string false "密码"
-// @Param repassword query string false "确认密码"
+// @param id query string false "id"
 // @Sussess 200 {string} json{"code", "message"}
-// @Router /user/create_user [get]
-func CreateUse(c *gin.Context) {
+// @Router /user/delete_user [get]
+func DeleteUser(c *gin.Context) {
 	user := models.UserBasic{}
-	user.Name = c.Query("name")
-	password := c.Query("password")
-	repassword := c.Query("repassword")
-	if password != repassword {
-		c.JSON(-1, gin.H{
-			"msg": "密码不一致",
-		})
-	}
-	user.Password = password
-	models.CreateUser(user)
-	// fmt.Println(data)
+	id, _ := strconv.Atoi(c.Query("id"))
+	user.ID = uint(id)
+	models.DeleteUser(user)
 	c.JSON(200, gin.H{
-		"msg": "新增用户成功",
+		"msg": "删除用户成功",
 	})
 }

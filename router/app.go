@@ -16,5 +16,6 @@ func Router() *gin.Engine {
 	r.GET("/index", service.GetIndex)
 	r.GET("/user/get_user_list", service.GetUserList)
 	r.GET("/user/create_user", service.CreateUser)
+	r.GET("/user/delete_user", service.DeleteUser)
 	return r
 }

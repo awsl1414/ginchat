@@ -52,6 +52,23 @@ const docTemplate = `{
                 "responses": {}
             }
         },
+        "/user/delete_user": {
+            "get": {
+                "tags": [
+                    "用户模块"
+                ],
+                "summary": "删除用户",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "id",
+                        "name": "id",
+                        "in": "query"
+                    }
+                ],
+                "responses": {}
+            }
+        },
         "/user/get_user_list": {
             "get": {
                 "tags": [
